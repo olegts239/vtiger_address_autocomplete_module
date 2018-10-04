@@ -20,4 +20,4 @@ User manual
 
 **Step 3.** Go to Leads, Organizations or Contacts module. In edit view start typing in Google Search field in address block.
 
-Module on<a href="https://marketplace.vtiger.com/extensions?id=282" target="_blank">Vtiger Marketplace</a>
+Module on <a href="https://marketplace.vtiger.com/extensions?id=282" target="_blank">Vtiger Marketplace</a>
