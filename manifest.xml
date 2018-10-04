@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <type>extension</type>
+    <name>EEAddressAutocomplete</name>
+    <label>EEAddressAutocomplete</label>
+    <parent></parent>
+    <version>2.0</version>
+    <dependencies>
+        <vtiger_version>6.0.0rc</vtiger_version>
+        <vtiger_max_version>7.*</vtiger_max_version>
+    </dependencies>
+	<license>
+        <inline><![CDATA[Address Autocomplete by EntExt
+ Copyright (C) 2018 EntExt Ltd
+ All Rights Reserved.                                                             
+ Source code may not be redistributed unless expressly permitted by EntExt Ltd.
+ If you have any questions or comments, please email: support@entext.org]]>
+        </inline>
+    </license>
+    <tables>
+		<table>
+			<name>vtiger_ee_address_autocomplete_settings</name>
+			<sql><![CDATA[CREATE TABLE IF NOT EXISTS `vtiger_ee_address_autocomplete_settings` (
+				`key` varchar(255) DEFAULT NULL,
+				`value` varchar(255) DEFAULT NULL
+				) ENGINE=InnoDB DEFAULT CHARSET=utf8
+			]]></sql>
+		</table>
+	</tables>
+</module>
