@@ -108,9 +108,12 @@ function fillInAddress() {
         var addressType = place.address_components[i].types[0];
         if(componentForm[addressType]) {
             var val = place.address_components[i]['long_name'];
-            elem = document.getElementById(componentForm[addressType]);
+            elem = jQuery('[name="' + componentForm[addressType] + '"]');
             if(elem) {
-                elem.value = val;
+                // elem.value = val;
+                // Adding support if any of the fields is selectbox
+                // therefor intiating triggers
+                jQuery(elem).val(val).trigger('liszt:updated').trigger('change');
             }
         }
 
@@ -165,23 +168,24 @@ function geolocate() {
 function getComponentForm() {
     var componentForm = [];
     switch (app.getModuleName()) {
+        // Changed values to work on field name (input name) rather than element id
         case 'Leads':
-            componentForm['locality'] = 'Leads_editView_fieldName_city';
-            componentForm['administrative_area_level_1'] = 'Leads_editView_fieldName_state';
-            componentForm['country'] = 'Leads_editView_fieldName_country';
-            componentForm['postal_code'] = 'Leads_editView_fieldName_code';
+            componentForm['locality'] = 'city';
+            componentForm['administrative_area_level_1'] = 'state';
+            componentForm['country'] = 'country';
+            componentForm['postal_code'] = 'code';
             break;
         case 'Accounts':
-            componentForm['locality'] = 'Accounts_editView_fieldName_bill_city';
-            componentForm['administrative_area_level_1'] = 'Accounts_editView_fieldName_bill_state';
-            componentForm['country'] = 'Accounts_editView_fieldName_bill_country';
-            componentForm['postal_code'] = 'Accounts_editView_fieldName_bill_code';
+            componentForm['locality'] = 'bill_city';
+            componentForm['administrative_area_level_1'] = 'bill_state';
+            componentForm['country'] = 'bill_country';
+            componentForm['postal_code'] = 'bill_code';
             break;
         case 'Contacts':
-            componentForm['locality'] = 'Contacts_editView_fieldName_mailingcity';
-            componentForm['administrative_area_level_1'] = 'Contacts_editView_fieldName_mailingstate';
-            componentForm['country'] = 'Contacts_editView_fieldName_mailingcountry';
-            componentForm['postal_code'] = 'Contacts_editView_fieldName_mailingzip';
+            componentForm['locality'] = 'mailingcity';
+            componentForm['administrative_area_level_1'] = 'mailingstate';
+            componentForm['country'] = 'mailingcountry';
+            componentForm['postal_code'] = 'mailingzip';
             break;
         default:
             break;
